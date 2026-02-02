@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image changer</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        .image_container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        .image_container img{
+            height: 300px;
+            border: 2px solid blue;
+            border-radius: 10px;
+        }
+        .image_container h2{
+            background-color: yellow;
+            color: black;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image changer</h1>
+    <div class="image_container">
+        <img src="https://media.istockphoto.com/id/1857301610/photo/aerial-view-of-london-and-the-tower-bridge.jpg?s=612x612&w=0&k=20&c=KQe_h6Le4WC0i6dvnWYCLj5lsV_oLvpqLcebVrb6sk4=" alt="London">
+        <h2>London</h2>
+    </div>
+    <script>
+        let img = document.querySelector('img');
+        let h2 = document.querySelector('h2');
+        let prevSrc = img.src
+        let prevtext = h2.innerText
+
+        img.addEventListener('mouseover',()=>{
+            img.src = 'https://media.istockphoto.com/id/1145422105/photo/eiffel-tower-aerial-view-paris.jpg?s=612x612&w=is&k=20&c=GaLPYacVcplcRSHWF0oda5nODPA0yiyLHp44b-JOwy4='
+            h2.innerText = 'paris'
+            img.style.border = '2px solid yellow'
+        })
+        img.addEventListener('mouseleave',()=>{
+            img.src = prevSrc
+            h2.innerText = prevtext
+            img.style.border = '2px solid blue'
+        })
+
+    </script>
+</body>
+</html>
